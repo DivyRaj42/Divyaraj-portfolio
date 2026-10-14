@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divya Raj | Compliance & Finance Associate</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#131c2e',
+                        cardBorder: '#1e293b',
+                        accentGreen: '#10b981',
+                        accentBlue: '#3b82f6',
+                        accentCyan: '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Ticker animation */
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: flex;
+            width: max-content;
+            animation: ticker 30s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(19, 28, 46, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-100 min-h-screen selection:bg-emerald-500 selection:text-white">
+
+    <!-- TOP LIVE FINANCIAL TICKER -->
+    <div class="bg-slate-950 border-b border-slate-800 text-xs py-2 overflow-hidden whitespace-nowrap relative z-50">
+        <div class="animate-ticker flex space-x-12 px-4 text-slate-400 font-mono">
+            <span class="flex items-center"><i class="fa-solid fa-chart-line text-emerald-400 mr-1.5"></i> FCA COMPLIANCE INDEX: <strong class="text-emerald-400 ml-1">▲ 1.42%</strong></span>
+            <span class="flex items-center"><i class="fa-solid fa-building-columns text-blue-400 mr-1.5"></i> SESAME BANKHALL BENCHMARK: <strong class="text-emerald-400 ml-1">▲ 0.85%</strong></span>
+            <span class="flex items-center"><i class="fa-solid fa-shield-halved text-cyan-400 mr-1.5"></i> GDPR & REGULATORY AUDIT: <strong class="text-emerald-400 ml-1">100% PASS</strong></span>
+            <span class="flex items-center"><i class="fa-solid fa-sterling-sign text-emerald-400 mr-1.5"></i> GBP/INR: <strong class="text-slate-200 ml-1">108.45 ▲</strong></span>
+            <span class="flex items-center"><i class="fa-solid fa-file-invoice-dollar text-blue-400 mr-1.5"></i> MORTGAGE CASE VOLUME: <strong class="text-emerald-400 ml-1">1,100+ / mo</strong></span>
+            <span class="flex items-center"><i class="fa-solid fa-bolt text-amber-400 mr-1.5"></i> BACKLOG CLEARANCE: <strong class="text-emerald-400 ml-1">3 Mos in 6 Weeks</strong></span>
+            <!-- Duplicate for smooth loop -->
+            <span class="flex items-center"><i class="fa-solid fa-chart-line text-emerald-400 mr-1.5"></i> FCA COMPLIANCE INDEX: <strong class="text-emerald-400 ml-1">▲ 1.42%</strong></span>
+            <span class="flex items-center"><i class="fa-solid fa-building-columns text-blue-400 mr-1.5"></i> SESAME BANKHALL BENCHMARK: <strong class="text-emerald-400 ml-1">▲ 0.85%</strong></span>
+        </div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-darkBg/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center font-bold text-slate-950 text-lg shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                    DR
+                </div>
+                <div>
+                    <span id="nav-name" class="font-bold text-lg tracking-tight text-white block">Divya Raj</span>
+                    <span id="nav-title" class="text-xs text-emerald-400 font-medium tracking-wide">Compliance & Finance Associate</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                <a href="#metrics" class="hover:text-emerald-400 transition-colors">Metrics</a>
+                <a href="#experience" class="hover:text-emerald-400 transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
+                <a href="#certifications" class="hover:text-emerald-400 transition-colors">Certifications</a>
+                <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <button onclick="openEditModal()" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-medium transition-all flex items-center space-x-2 border border-slate-700">
+                    <i class="fa-solid fa-gear text-cyan-400"></i>
+                    <span class="hidden sm:inline">Edit Mode</span>
+                </button>
+                <a href="mailto:divyaraj1503@gmail.com" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-semibold text-sm shadow-lg shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-download mr-1.5"></i> Resume PDF
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="about" class="relative pt-20 pb-16 overflow-hidden">
+        <!-- Glow background accents -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-80 h-80 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>FCA Regulated Mortgage & Compliance Specialist</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Precision in <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Compliance</span> & Financial Operations.
+                    </h1>
+                    
+                    <p id="hero-bio" class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Finance graduate with 1 year of hands-on experience in FCA-regulated mortgage operations at Sesame Bankhall Group. Passionate about how financial systems and rules connect in practice—approaching compliance work carefully, methodically, and with zero breaches.
+                    </p>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#experience" class="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm shadow-xl shadow-emerald-500/20 transition-all flex items-center space-x-2">
+                            <span>Explore Experience</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="px-6 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition-all flex items-center space-x-2">
+                            <i class="fa-solid fa-envelope text-cyan-400"></i>
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+
+                    <div class="pt-6 flex items-center justify-center lg:justify-start space-x-6 text-slate-400 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-location-dot text-emerald-400"></i>
+                            <span id="hero-location">Gurugram, India</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-phone text-blue-400"></i>
+                            <span id="hero-phone">+91-6204677596</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-envelope text-cyan-400"></i>
+                            <span id="hero-email">divyaraj1503@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Profile Card / Floating Metrics Preview -->
+                <div class="lg:col-span-5">
+                    <div class="glass-panel p-8 rounded-3xl shadow-2xl relative border border-slate-700/50 space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-blue-600 flex items-center justify-center text-white text-2xl font-black shadow-lg">
+                                    DR
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white text-lg">Divya Raj</h3>
+                                    <p class="text-xs text-slate-400">Compliance & Finance Associate</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono font-semibold border border-emerald-500/20">Active</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                                <div class="flex items-center space-x-3">
+                                    <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400">
+                                        <i class="fa-solid fa-bullseye text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400">Accuracy Benchmark</div>
+                                        <div class="text-sm font-bold text-white">Mortgage Operations</div>
+                                    </div>
+                                </div>
+                                <span id="card-metric-1" class="text-xl font-extrabold text-emerald-400">97%</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                                <div class="flex items-center space-x-3">
+                                    <div class="p-2.5 rounded-lg bg-blue-500/10 text-blue-400">
+                                        <i class="fa-solid fa-file-invoice text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400">Monthly Processing</div>
+                                        <div class="text-sm font-bold text-white">Case File Volume</div>
+                                    </div>
+                                </div>
+                                <span id="card-metric-2" class="text-xl font-extrabold text-blue-400">1,100+</span>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                                <div class="flex items-center space-x-3">
+                                    <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400">
+                                        <i class="fa-solid fa-shield-check text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-slate-400">Compliance Record</div>
+                                        <div class="text-sm font-bold text-white">Breach Incidents</div>
+                                    </div>
+                                </div>
+                                <span class="text-xl font-extrabold text-cyan-400">0 Breaches</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="https://linkedin.com/in/divya-raj-5a3b5323b" target="_blank" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm flex items-center justify-center space-x-2 border border-slate-700 transition-colors">
+                                <i class="fa-brands fa-linkedin text-blue-400 text-lg"></i>
+                                <span>Connect on LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- METRICS SECTION -->
+    <section id="metrics" class="py-16 bg-slate-950/50 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-2">Performance & Impact</h2>
+                <h3 class="text-3xl font-bold text-white">Key Quantifiable Achievements</h3>
+                <p class="text-slate-400 mt-2 text-sm">Demonstrating precision, speed, and uncompromising regulatory standards at Sesame Bankhall Group.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Metric 1 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
+                            <i class="fa-solid fa-chart-pie text-xl"></i>
+                        </span>
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">Verified</span>
+                    </div>
+                    <div id="metric-box-1" class="text-4xl font-black text-white mb-1">97%</div>
+                    <div class="text-sm font-semibold text-emerald-400 mb-2">Accuracy Rate</div>
+                    <p class="text-xs text-slate-400">Maintained consistently across 1,100+ monthly mortgage case files under FCA and GDPR standards.</p>
+                </div>
+
+                <!-- Metric 2 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500 group-hover:text-slate-950 transition-colors">
+                            <i class="fa-solid fa-bolt text-xl"></i>
+                        </span>
+                        <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-1 rounded">Efficiency</span>
+                    </div>
+                    <div id="metric-box-2" class="text-4xl font-black text-white mb-1">1,100+</div>
+                    <div class="text-sm font-semibold text-blue-400 mb-2">Cases / Month</div>
+                    <p class="text-xs text-slate-400">High-volume mortgage processing with rigorous quality assurance and document verification.</p>
+                </div>
+
+                <!-- Metric 3 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                            <i class="fa-solid fa-globe text-xl"></i>
+                        </span>
+                        <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-1 rounded">Audit</span>
+                    </div>
+                    <div id="metric-box-3" class="text-4xl font-black text-white mb-1">40+</div>
+                    <div class="text-sm font-semibold text-cyan-400 mb-2">Websites Reviewed</div>
+                    <p class="text-xs text-slate-400">Conducted FCA compliance reviews across adviser websites and identified compliance gaps.</p>
+                </div>
+
+                <!-- Metric 4 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition-all group">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </span>
+                        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">Zero Breaches</span>
+                    </div>
+                    <div id="metric-box-4" class="text-4xl font-black text-white mb-1">0</div>
+                    <div class="text-sm font-semibold text-emerald-400 mb-2">Compliance Breaches</div>
+                    <p class="text-xs text-slate-400">Maintained a zero-breach record over 11 months handling confidential client financial data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-2">Professional Journey</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Work Experience & Responsibilities</h3>
+                <p class="text-slate-400 mt-2">Detailed overview of roles, operational workflows, and regulatory achievements.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="relative border-l-2 border-emerald-500/30 pl-6 sm:pl-10 space-y-12">
+                    
+                    <!-- Timeline Item -->
+                    <div class="relative">
+                        <!-- Timeline node dot -->
+                        <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-emerald-500 border-4 border-darkBg flex items-center justify-center shadow-lg shadow-emerald-500/50"></div>
+
+                        <div class="glass-panel p-8 rounded-3xl border border-slate-800 hover:border-emerald-500/40 transition-all space-y-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-800 pb-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white">Advice Review Associate</h4>
+                                    <div class="text-emerald-400 font-medium text-sm">Sesame Bankhall Group • Gurugram</div>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono font-semibold border border-emerald-500/20 w-max">
+                                    Mar 2025 – Mar 2026
+                                </span>
+                            </div>
+
+                            <!-- Operational Functions Pills -->
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 font-medium"><i class="fa-solid fa-database text-emerald-400 mr-1.5"></i> Data Entry</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 font-medium"><i class="fa-solid fa-file-shield text-blue-400 mr-1.5"></i> Document Verification</span>
+                                <span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 font-medium"><i class="fa-solid fa-bullhorn text-cyan-400 mr-1.5"></i> Financial Promotions Review</span>
+                            </div>
+
+                            <ul class="space-y-3 text-slate-300 text-sm leading-relaxed">
+                                <li class="flex items-start space-x-3">
+                                    <i class="fa-solid fa-check-circle text-emerald-400 mt-1 flex-shrink-0"></i>
+                                    <span>Documented and formalized <strong>3 full procedure guides</strong> for financial data entry workflows, maintaining a <strong>97% accuracy rate</strong> across 1,100+ monthly mortgage case files under FCA and GDPR standards.</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fa-solid fa-check-circle text-emerald-400 mt-1 flex-shrink-0"></i>
+                                    <span>Cleared a <strong>3-month processing backlog within 6 weeks</strong> by taking proactive ownership of priority case files and managing workflow efficiency.</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fa-solid fa-check-circle text-emerald-400 mt-1 flex-shrink-0"></i>
+                                    <span>Conducted FCA compliance reviews across <strong>40+ adviser websites</strong>, identifying firms that did not appear on search engines despite being listed on the FCA register, and reported findings to relevant teams.</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fa-solid fa-check-circle text-emerald-400 mt-1 flex-shrink-0"></i>
+                                    <span>Worked across 3 core operational functions (data entry, document verification, and financial promotions review), gaining broad exposure to mortgage case processing and adviser compliance.</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fa-solid fa-check-circle text-emerald-400 mt-1 flex-shrink-0"></i>
+                                    <span>Maintained a <strong>zero-breach compliance record over 11 months</strong> handling confidential client data under strict FCA mortgage regulations and GDPR protocols.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS & COMPETENCIES MATRIX -->
+    <section id="skills" class="py-20 bg-slate-950/50 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-2">Expertise & Stack</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Skills & Competencies Matrix</h3>
+                <p class="text-slate-400 mt-2">Comprehensive proficiency spanning regulatory frameworks, financial domains, and analytical tools.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Category 1: Regulatory & Compliance -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 space-y-6">
+                    <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Regulatory & Compliance</h4>
+                            <p class="text-xs text-slate-400">Standards & Quality Control</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-emerald-500 transition-colors">FCA Regulations</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-emerald-500 transition-colors">GDPR Standards</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-emerald-500 transition-colors">Quality Assurance</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-emerald-500 transition-colors">AML / KYC</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-emerald-500 transition-colors">Financial Promotions</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-emerald-500 transition-colors">Adviser Audits</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: Financial Domain -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 space-y-6">
+                    <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Financial Domain</h4>
+                            <p class="text-xs text-slate-400">Operations & Markets</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-blue-500 transition-colors">Mortgage Products</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-blue-500 transition-colors">Lending Operations</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-blue-500 transition-colors">Investment Banking</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-blue-500 transition-colors">Stock Market</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-blue-500 transition-colors">M&A Fundamentals</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-blue-500 transition-colors">Derivatives</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: Tools & Software -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 space-y-6">
+                    <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Tools & Tech</h4>
+                            <p class="text-xs text-slate-400">Software & Analytics</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-cyan-500 transition-colors">Excel: VLOOKUP</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-cyan-500 transition-colors">Pivot Tables</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-cyan-500 transition-colors">PowerQuery</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-cyan-500 transition-colors">MS Office Suite</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-cyan-500 transition-colors">CRM Systems</span>
+                        <span class="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-medium text-slate-200 hover:border-cyan-500 transition-colors">Document Management</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section id="certifications" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-2">Credentials & Background</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Education & Certifications</h3>
+                <p class="text-slate-400 mt-2">Academic foundation and specialized professional certifications.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Certifications Box -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 space-y-6">
+                    <div class="flex items-center space-x-3 border-b border-slate-800 pb-4">
+                        <div class="p-3 rounded-xl bg-emerald-500/10 text-emerald-400">
+                            <i class="fa-solid fa-certificate text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Certifications & Training</h4>
+                            <p class="text-xs text-slate-400">Regulatory & Investment Banking</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">2025–2026</span>
+                                <span class="text-xs text-slate-400">Sesame Bankhall Group</span>
+                            </div>
+                            <h5 class="font-bold text-white text-sm">FCA Consumer Duty Company Training</h5>
+                            <p class="text-xs text-slate-300">Monthly regulatory updates and compliance protocol enforcement.</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">2026</span>
+                                <span class="text-xs text-slate-400">Imarticus Learning</span>
+                            </div>
+                            <h5 class="font-bold text-white text-sm">Investment Banking, AML / KYC</h5>
+                            <p class="text-xs text-slate-300">Specialized coursework in anti-money laundering, know-your-customer regulations, and capital markets.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Box -->
+                <div class="glass-panel p-8 rounded-3xl border border-slate-800 space-y-6">
+                    <div class="flex items-center space-x-3 border-b border-slate-800 pb-4">
+                        <div class="p-3 rounded-xl bg-blue-500/10 text-blue-400">
+                            <i class="fa-solid fa-graduation-cap text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-lg">Education & Coursework</h4>
+                            <p class="text-xs text-slate-400">Academic Background</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">2023</span>
+                                <span class="text-xs text-slate-400">Greater Noida</span>
+                            </div>
+                            <h5 class="font-bold text-white text-sm">B.Com (Hons)</h5>
+                            <p class="text-xs text-slate-300">Galgotias University</p>
+                            <p class="text-xs text-slate-400 pt-1 border-t border-slate-800"><strong>Key Coursework:</strong> Financial Accounting, Business Economics, Taxation, Financial Management, Audit & Controls.</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded">2018 – 2020</span>
+                                <span class="text-xs text-slate-400">Bihar / Varanasi</span>
+                            </div>
+                            <h5 class="font-bold text-white text-sm">Commerce State Board & CBSE</h5>
+                            <p class="text-xs text-slate-300">Higher Secondary (Commerce) & CBSE Secondary (10th) from Sunbeam School Suncity, Varanasi.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERESTS & PERSONAL TOUCH -->
+    <section class="py-16 bg-slate-950/50 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-2">Beyond Work</h2>
+                <h3 class="text-3xl font-bold text-white">Interests & Leadership</h3>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                <div class="glass-panel p-6 rounded-2xl text-center border border-slate-800 hover:border-emerald-500/40 transition-all space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-futbol"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Football</h4>
+                    <p class="text-xs text-slate-400">School Team Captain (Leadership & Teamwork)</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl text-center border border-slate-800 hover:border-blue-500/40 transition-all space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Automotive</h4>
+                    <p class="text-xs text-slate-400">Performance & Engineering fascination</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl text-center border border-slate-800 hover:border-cyan-500/40 transition-all space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Gaming & Public Speaking</h4>
+                    <p class="text-xs text-slate-400">Strategy, focus & articulate expression</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl text-center border border-slate-800 hover:border-emerald-500/40 transition-all space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Curious Mindset</h4>
+                    <p class="text-xs text-slate-400">Constantly learning how any process works</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-10 sm:p-14 rounded-3xl border border-slate-700/60 shadow-2xl max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+                            <span>Get In Touch</span>
+                        </div>
+                        <h3 class="text-3xl font-extrabold text-white">Let's Connect & Discuss Opportunities</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Whether you're looking for compliance expertise, mortgage operations efficiency, or finance professional collaboration, feel free to reach out.
+                        </p>
+                        
+                        <div class="space-y-4 pt-2 text-sm text-slate-300">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-emerald-400">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <span id="contact-email">divyaraj1503@gmail.com</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-blue-400">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <span id="contact-phone">+91-6204677596</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <span id="contact-location">Gurugram, India</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Your Name</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors" placeholder="John Smith">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Email Address</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Message</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500 transition-colors resize-none" placeholder="Hello Divya, I would like to discuss..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Divya Raj. All rights reserved. Built with precision for Compliance & Finance.</p>
+            <div class="flex items-center space-x-4">
+                <a href="https://linkedin.com/in/divya-raj-5a3b5323b" target="_blank" class="hover:text-emerald-400 transition-colors"><i class="fa-brands fa-linkedin text-base"></i></a>
+                <a href="mailto:divyaraj1503@gmail.com" class="hover:text-emerald-400 transition-colors"><i class="fa-solid fa-envelope text-base"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIVE EDIT MODAL -->
+    <div id="editModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-panel p-6 sm:p-8 rounded-3xl max-w-lg w-full border border-slate-700 space-y-6 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <h3 class="font-bold text-white text-lg flex items-center space-x-2">
+                    <i class="fa-solid fa-gear text-cyan-400"></i>
+                    <span>Live Profile Editor</span>
+                </h3>
+                <button onclick="closeEditModal()" class="text-slate-400 hover:text-white text-lg font-bold"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Full Name</label>
+                    <input type="text" id="edit-name" value="Divya Raj" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Professional Title</label>
+                    <input type="text" id="edit-title" value="Compliance & Finance Associate" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Email Address</label>
+                    <input type="text" id="edit-email" value="divyaraj1503@gmail.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Phone Number</label>
+                    <input type="text" id="edit-phone" value="+91-6204677596" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Location</label>
+                    <input type="text" id="edit-location" value="Gurugram, India" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Accuracy Metric (%)</label>
+                    <input type="text" id="edit-metric1" value="97%" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Monthly Case Volume</label>
+                    <input type="text" id="edit-metric2" value="1,100+" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Bio Description</label>
+                    <textarea id="edit-biotext" rows="3" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-emerald-500">Finance graduate with 1 year of hands-on experience in FCA-regulated mortgage operations at Sesame Bankhall Group. Passionate about how financial systems and rules connect in practice—approaching compliance work carefully, methodically, and with zero breaches.</textarea>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-end space-x-3 pt-2 border-t border-slate-800">
+                <button onclick="closeEditModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-medium">Cancel</button>
+                <button onclick="saveProfileChanges()" class="px-5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm shadow-lg shadow-emerald-500/20">Save & Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUSTOM TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 border border-emerald-500/50 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toast-msg" class="text-sm font-medium">Action completed successfully!</span>
+    </div>
+
+    <script>
+        // Modal controllers
+        function openEditModal() {
+            document.getElementById('editModal').classList.remove('hidden');
+            document.getElementById('editModal').classList.add('flex');
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').classList.remove('flex');
+            document.getElementById('editModal').classList.add('hidden');
+        }
+
+        // Save live changes
+        function saveProfileChanges() {
+            const name = document.getElementById('edit-name').value;
+            const title = document.getElementById('edit-title').value;
+            const email = document.getElementById('edit-email').value;
+            const phone = document.getElementById('edit-phone').value;
+            const location = document.getElementById('edit-location').value;
+            const m1 = document.getElementById('edit-metric1').value;
+            const m2 = document.getElementById('edit-metric2').value;
+            const bio = document.getElementById('edit-biotext').value;
+
+            // Update DOM
+            document.getElementById('nav-name').innerText = name;
+            document.getElementById('nav-title').innerText = title;
+            document.getElementById('hero-bio').innerText = bio;
+            document.getElementById('hero-location').innerText = location;
+            document.getElementById('hero-phone').innerText = phone;
+            document.getElementById('hero-email').innerText = email;
+            document.getElementById('card-metric-1').innerText = m1;
+            document.getElementById('card-metric-2').innerText = m2;
+            document.getElementById('metric-box-1').innerText = m1;
+            document.getElementById('metric-box-2').innerText = m2;
+            document.getElementById('contact-email').innerText = email;
+            document.getElementById('contact-phone').innerText = phone;
+            document.getElementById('contact-location').innerText = location;
+
+            closeEditModal();
+            showToast("Profile details updated successfully!");
+        }
+
+        // Contact Form Submit Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast("Thank you! Your message has been sent to Divya Raj.");
+            e.target.reset();
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
